@@ -1,4 +1,4 @@
-using COMP2139_ICE.Data; 
+using COMP2139_ICE.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,8 +20,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-//app.UseHttpsRedirection();
-
+app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
@@ -29,8 +28,13 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
+    name: "area",
+    pattern: "{area:exists}/{controller=Projects}/{action=Index}/{id?}");
+    
+app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}")
+        pattern: "{controller=Home}/{action=Index}/{id?}") 
+    // id (anything) with question mark means optional
     .WithStaticAssets();
 
 

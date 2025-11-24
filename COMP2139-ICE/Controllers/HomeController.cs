@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using COMP2139_ICE.Areas.ProjectManagement.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using COMP2139_ICE.Models;
 
@@ -22,6 +23,13 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+    
+    
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
